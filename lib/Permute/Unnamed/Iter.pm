@@ -26,7 +26,7 @@ sub permute_unnamed_iter {
             $state2 = 1;
             goto L2;
         } elsif ($state2 == 2) { # all permutation exhausted
-            return undef;
+            return undef; ## no critic: Subroutines::ProhibitExplicitReturnUndef
         }
         my $i = $#{$state};
       L1:
@@ -34,7 +34,7 @@ sub permute_unnamed_iter {
             if ($state->[$i] >= $#{$args[$i]}) {
                 if ($i == 0) {
                     $state2 = 2;
-                    return undef;
+                    return undef; ## no critic: Subroutines::ProhibitExplicitReturnUndef
                 }
                 $state->[$i] = 0;
                 my $j = $i-1;
@@ -42,7 +42,7 @@ sub permute_unnamed_iter {
                     if ($state->[$j] >= $#{$args[$j]}) {
                         if ($j == 0) { # all permutation exhausted
                             $state2 = 2;
-                            return undef;
+                            return undef; ## no critic: Subroutines::ProhibitExplicitReturnUndef
                         }
                         $state->[$j] = 0;
                         $j--;
